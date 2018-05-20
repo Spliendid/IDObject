@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDObject", "IDObject.csproj", "{CFB38DE9-608A-7B16-98AF-3D8846989BF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDObject.Editor", "IDObject.Editor.csproj", "{CE87D30C-1A7F-73A0-1078-4D3777E306C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFB38DE9-608A-7B16-98AF-3D8846989BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFB38DE9-608A-7B16-98AF-3D8846989BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFB38DE9-608A-7B16-98AF-3D8846989BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFB38DE9-608A-7B16-98AF-3D8846989BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE87D30C-1A7F-73A0-1078-4D3777E306C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE87D30C-1A7F-73A0-1078-4D3777E306C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE87D30C-1A7F-73A0-1078-4D3777E306C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE87D30C-1A7F-73A0-1078-4D3777E306C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
