@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 //物体唯一ID
-[Serializable,ExecuteInEditMode]
+[Serializable,ExecuteInEditMode,DisallowMultipleComponent]
 public class ObjID : MonoBehaviour
 {
 
@@ -99,7 +99,7 @@ public class ObjID : MonoBehaviour
     #endregion
 
     #region 查
-
+      
 
     //根据ID找到Object
     public static GameObject GetObjByID(int _id)
