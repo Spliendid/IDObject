@@ -229,7 +229,7 @@ public class ObjID : MonoBehaviour
 
     #region Mono
 
-    public void Start()
+    public void Awake()
     {
         InitID();
         Debug.Log("_Start");
