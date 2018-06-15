@@ -43,8 +43,6 @@ public class IDObjEditor : Editor
        _SerObj.Update();
         EditorGUILayout.PropertyField(ID);
         _SerObj.ApplyModifiedProperties();
-        _Objid.testBool = EditorGUILayout.Toggle("TestToogle", _Objid.testBool);
-        _Objid.testFloat = EditorGUILayout.Slider(new GUIContent("testFloat"),_Objid.testFloat, 0, 100);       
        // EditorUtility.SetDirty(target);
         if (GUI.changed)
         {

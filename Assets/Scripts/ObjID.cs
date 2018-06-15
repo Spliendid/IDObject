@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 //物体唯一ID
-[Serializable,ExecuteInEditMode,DisallowMultipleComponent]
+[Serializable, ExecuteInEditMode, DisallowMultipleComponent]
 public class ObjID : MonoBehaviour
 {
 
@@ -31,11 +31,11 @@ public class ObjID : MonoBehaviour
         }
         if (ObjIDDic.ContainsKey(_ID))
         {
-            if (ObjIDDic[_ID]!=obj)
+            if (ObjIDDic[_ID] != obj)
             {
                 try
                 {
-                    Debug.Log(obj.name +"<color=greed>"+_ID.ToString()+"</color>"+ "<color=red>ID已存在</color>"+GetObjByID(_ID).name);
+                    Debug.Log(obj.name + "<color=greed>" + _ID.ToString() + "</color>" + "<color=red>ID已存在</color>" + GetObjByID(_ID).name);
 
                 }
                 catch (Exception)
@@ -76,30 +76,30 @@ public class ObjID : MonoBehaviour
 
     #region 改
 
-    public bool  UpdateObj(int id,GameObject obj)
+    public bool UpdateObj(int id, GameObject obj)
     {
         if (ObjIDDic.ContainsKey(id))
         {
-            if (ObjIDDic[id]!=obj)
+            if (ObjIDDic[id] != obj)
             {
                 Debug.Log(obj.name + "<color=greed>" + id.ToString() + "</color>" + "<color=red>ID已存在</color>" + GetObjByID(id).name);
             }
-            return  false;
-            
+            return false;
+
         }
         if (ObjIDDic.ContainsValue(obj))//如果这个obj，先删除
         {
             DelObjIDDic(obj);
         }
 
-        AddDic(id,obj);
+        AddDic(id, obj);
         return true;
     }
 
     #endregion
 
     #region 查
-      
+
 
     //根据ID找到Object
     public static GameObject GetObjByID(int _id)
@@ -112,9 +112,24 @@ public class ObjID : MonoBehaviour
         {
             return ObjIDDic[_id];
         }
+        Debug.Log(_id.ToString() + "<color=red>Wrong OBJ ID</color>");
         return null;
     }
-    
+
+    public static T GetObjByID<T>(int _id) where T : Component
+    {
+        if (_id == 0)
+        {
+            return null;
+        }
+        if (ObjIDDic.ContainsKey(_id))
+        {
+            return ObjIDDic[_id].GetComponent<T>();
+        }
+        Debug.Log(_id.ToString() + "<color=red>Wrong OBJ ID</color>");
+        return null;
+    }
+
     //根据物体获取ID(Linq方式)
     /*
     public static int GetIDByObj(GameObject go)
@@ -145,14 +160,28 @@ public class ObjID : MonoBehaviour
         }
         return 0;
     }
-    //检查ID是否被占用
-    public static bool CheckID(int _id,GameObject go)
+    //检查ID是否有值,如果value 为 null 则 Remove 掉
+    public static bool CheckID(int _id)
     {
-        return ObjIDDic.ContainsKey(_id);
+
+        if (ObjIDDic.ContainsKey(_id))
+        {
+            if (ObjIDDic[_id] != null)
+            {
+                return true;
+            }
+            else
+            {
+                ObjIDDic.Remove(_id);
+                Debug.Log("<color=red>Value被删除，Remove掉此物体</color>");
+            }
+        }
+        return false;
     }
 
-    public static bool Check_IDValue(int _id,GameObject go)
+    public static bool Check_IDValue(int _id, GameObject go)
     {
+        CheckID(_id);
         if (ObjIDDic.ContainsKey(_id))
         {
             return ObjIDDic[_id] == go;
@@ -189,7 +218,7 @@ public class ObjID : MonoBehaviour
     [ContextMenu("随机一个ID")]
     public void RandomID()
     {
-        while (UpdateObj(ID, this.gameObject)==false)
+        while (UpdateObj(ID, this.gameObject) == false)
         {
             ID = UnityEngine.Random.Range(0, 9999);
         }
@@ -214,7 +243,7 @@ public class ObjID : MonoBehaviour
 
     public void DelThis()
     {
-        if ( null==this)
+        if (null == this)
         {
             DelObjIDDic(ID);
         }
@@ -232,8 +261,8 @@ public class ObjID : MonoBehaviour
     public void Awake()
     {
         InitID();
-        Debug.Log("_Start");
-      
+        Debug.Log("_Awake");
+
     }
 
     public void Update()
