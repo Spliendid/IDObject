@@ -30,7 +30,7 @@ public class SearchWindow :EditorWindow  {
 				 }
 			 }
 		 }
-		scrollPos = GUILayout.BeginScrollView(scrollPos,GUILayout.Height(200));	
+		scrollPos = GUILayout.BeginScrollView(scrollPos,GUILayout.Height(this.position.height-20));	
 		foreach (KeyValuePair<int,GameObject> item in objDic)
 		{
 			EditorGUILayout.BeginHorizontal();
