@@ -44,11 +44,11 @@ public class IDObjTool {
         }
     }
 
-  [MenuItem("Tools/IDManager/FindObj")]
-    public static void FindObj()
-    {
-        EditorWindow.GetWindow(typeof(FindObjWindow));
-    }
+//   [MenuItem("Tools/IDManager/FindObj")]
+//     public static void FindObj()
+//     {
+//         EditorWindow.GetWindow(typeof(FindObjWindow));
+//     }
 
     #endregion
 #endif
